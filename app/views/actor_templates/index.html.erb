@@ -1,0 +1,22 @@
+<div><a href="/">Home</a></div>
+<h1> List of all actors</h1>
+
+
+    <table border="1">
+      <tr> <!--table heading-->
+        <th>ID</th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Dob</th>
+        <th></th>
+      </tr>
+      <% Actor.all.each do |actor|%>
+        <tr> <!--rows with actor data -->
+          <td><%=actor.id%></td>
+          <td><img src=<%=actor.image%>></td>
+          <td><%=actor.name%></td>
+          <td><%=actor.dob%></td>
+          <td><a href="/actors/<%=actor.id%>" target="_blank">Show Details</a></td>
+        </tr>
+      <%end%>
+    </table>

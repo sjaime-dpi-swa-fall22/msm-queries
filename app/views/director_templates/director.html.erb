@@ -2,9 +2,11 @@
 <h1> Director #<%=@director_type%> details</h1>
 <div><a href="/directors">Go Back</a></div>
 
+<%dir_name=Director.where({:id => @director_type})[0].name%>
+
 <dl>
   <dt>Name</dt>
-  <dd><%=Director.where({:id => @director_type})[0].name%></dd>
+  <dd><%=dir_name%></dd>
 
   <dt>Dob</dt>
   <dd><%=Director.where({:id => @director_type})[0].dob%></dd>
@@ -15,3 +17,28 @@
   <dt>Image</dt>
   <dd><img src=<%=Director.where({:id => @director_type})[0].image%>></dd>
 </dl>
+
+<h1>Filmography</h1>
+
+<%movies = Movie.where({:director_id => @director_type})%>
+
+<table border="1">
+  <tr> <!--table heading-->
+    <th>ID</th>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Director</th>
+    <th></th>
+  </tr>
+  <% movies.each do |movie|%>
+      <tr> <!--rows with actor data -->
+        <td><%=movie.id%></td>
+        <td><img src=<%=movie.image%>></td>
+        <td><%=movie.title%></td>
+        <td><%=movie.year%></td>
+        <td><%=dir_name%></td>
+        <td><a href="/movies/<%=movie.id%>" target="_blank">Show Details</a></td>
+      </tr>
+  <%end%>
+</table>
