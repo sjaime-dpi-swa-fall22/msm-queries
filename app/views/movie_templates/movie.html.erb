@@ -1,0 +1,31 @@
+<div><a href="/">Home</a></div>
+<h1> Movie #<%=@director_type%> details</h1>
+<div><a href="/movies">Go Back</a></div>
+
+<dl>
+  <dt>Title</dt>
+  <dd><%=Movie.where({:id => @movie_id})[0].title%></dd>
+
+  <dt>Year</dt>
+  <dd><%=Movie.where({:id => @movie_id})[0].year%></dd>
+
+  <dt>Duration</dt>
+  <dd><%=Movie.where({:id => @movie_id})[0].duration%></dd>
+
+  <dt>Description</dt>
+  <dd><%=Movie.where({:id => @movie_id})[0].description%></dd>
+
+  <dt>Image</dt>
+  <dd><img src=<%=Movie.where({:id => @movie_id})[0].image%>></dd>
+
+  <% dir_id = Movie.where({:id => @movie_id})[0].director_id %>
+  <dt>Director</dt>
+  <dd><%=Director.where({ :id => dir_id})[0].name%></dd>
+  
+  <dt>Created at</dt>
+  <%current_year=Date.today.year%>
+  <dd>about <%=current_year - (Movie.where({:id => @movie_id})[0].created_at.year)%> years ago</dd>
+
+  <dt>Updated at</dt>
+  <dd>about <%=current_year - (Movie.where({:id => @movie_id})[0].updated_at.year)%> years ago</dd>
+</dl>

@@ -1,0 +1,7 @@
+<div><a href="/">Home</a></div>
+<h1> <%=@director_type.capitalize%> director</h1>
+
+
+<p>The <%=@director_type%> director in our dataset right now is <a href="/directors/<%=@director.id%>"><%=@director.name%></a>, born on <%=@director.dob.strftime("%B %e,%Y")%>.</p>
+
+<p>(<a href=http://strftime.net/>http://strftime.net/</a> is handy for putting together the formatting strings for the .strftime method.)</p>
