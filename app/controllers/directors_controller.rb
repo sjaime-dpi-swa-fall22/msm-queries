@@ -16,6 +16,7 @@ class DirectorsController < ActionController::Base
       @director = Director.where({:dob => max_dob})[0]
       render({ :template => "director_templates/director_age.html.erb"})
     else
+      @director=Director.where({:id => @director_type})[0]
       render({ :template => "director_templates/director.html.erb"})
     end
   end

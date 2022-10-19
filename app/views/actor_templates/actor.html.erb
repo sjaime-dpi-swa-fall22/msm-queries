@@ -4,23 +4,23 @@
 
 <dl>
   <dt>Name</dt>
-  <dd><%=Actor.where({:id => @actor_id})[0].name%></dd>
+  <dd><%=@actor.name%></dd>
 
   <dt>Dob</dt>
-  <dd><%=Actor.where({:id => @actor_id})[0].dob%></dd>
+  <dd><%=@actor.dob%></dd>
 
   <dt>Bio</dt>
-  <dd><%=Actor.where({:id => @actor_id})[0].bio%></dd>
+  <dd><%=@actor.bio%></dd>
 
   <dt>Image</dt>
-  <dd><img src=<%=Actor.where({:id => @actor_id})[0].image%>></dd>
+  <dd><img src=<%=@actor.image%>></dd>
   
   <dt>Created at</dt>
   <%current_year=Date.today.year%>
-  <dd>about <%=current_year - (Actor.where({:id => @actor_id})[0].created_at.year)%> years ago</dd>
+  <dd>about <%=current_year - (@actor.created_at.year)%> years ago</dd>
 
   <dt>Updated at</dt>
-  <dd>about <%=current_year - (Actor.where({:id => @actor_id})[0].updated_at.year)%> years ago</dd>
+  <dd>about <%=current_year - (@actor.updated_at.year)%> years ago</dd>
 </dl>
 
 <h1>Filmography</h1>

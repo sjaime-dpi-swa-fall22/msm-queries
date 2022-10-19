@@ -2,20 +2,20 @@
 <h1> Director #<%=@director_type%> details</h1>
 <div><a href="/directors">Go Back</a></div>
 
-<%dir_name=Director.where({:id => @director_type})[0].name%>
+<%dir_name=@director.name%>
 
 <dl>
   <dt>Name</dt>
   <dd><%=dir_name%></dd>
 
   <dt>Dob</dt>
-  <dd><%=Director.where({:id => @director_type})[0].dob%></dd>
+  <dd><%=@director.dob%></dd>
 
   <dt>Bio</dt>
-  <dd><%=Director.where({:id => @director_type})[0].bio%></dd>
+  <dd><%=@director.bio%></dd>
 
   <dt>Image</dt>
-  <dd><img src=<%=Director.where({:id => @director_type})[0].image%>></dd>
+  <dd><img src=<%=@director.image%>></dd>
 </dl>
 
 <h1>Filmography</h1>
